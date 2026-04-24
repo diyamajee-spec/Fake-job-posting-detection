@@ -60,6 +60,21 @@ The project includes a premium web interface with a "reddish-blue" (Indigo/Pink)
 - Dynamic result gauges and animations.
 
 ## How to Use
+
+### ⚡ Quick Start
+You can now start the entire application (including dependency checks and training) with a single command:
+
+**On Windows (PowerShell):**
+```powershell
+./run_local.ps1
+```
+
+**On Linux/Mac/Git Bash:**
+```bash
+bash run_local.sh
+```
+
+### Manual Setup
 1. **Prepare Data & Model**:
    ```bash
    python generate_data.py
