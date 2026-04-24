@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuardJob | Fake Job Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-background"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">Guard<span>Job</span></div>
+            <p>AI-Powered Fraudulent Job Posting Detection</p>
+        </header>
+
+        <main>
+            <div class="input-card">
+                <div class="card-header">
+                    <h2>Analyze Job Posting</h2>
+                    <button type="button" id="randomBtn" class="secondary-btn">Load Random Sample</button>
+                </div>
+                <form id="predictionForm">
+                    <div class="form-group">
+                        <label for="title">Job Title</label>
+                        <input type="text" id="title" placeholder="e.g. Senior Software Engineer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company_profile">Company Profile</label>
+                        <textarea id="company_profile" rows="3" placeholder="Brief about the company..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Job Description</label>
+                        <textarea id="description" rows="4" placeholder="Detailed job description..." required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="employment_type">Employment Type</label>
+                            <select id="employment_type">
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Contract">Contract</option>
+                                <option value="Freelance">Freelance</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="required_experience">Experience Level</label>
+                            <select id="required_experience">
+                                <option value="Entry level">Entry level</option>
+                                <option value="Associate">Associate</option>
+                                <option value="Mid-Senior level">Mid-Senior level</option>
+                                <option value="Director">Director</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="required_education">Education</label>
+                            <select id="required_education">
+                                <option value="Unspecified">Unspecified</option>
+                                <option value="High School">High School</option>
+                                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                <option value="Master's Degree">Master's Degree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <select id="industry">
+                                <option value="Technology">Technology</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Education">Education</option>
+                                <option value="Creative">Creative</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row checkboxes">
+                        <div class="check-group">
+                            <input type="checkbox" id="telecommuting">
+                            <label for="telecommuting">Remote Work</label>
+                        </div>
+                        <div class="check-group">
+                            <input type="checkbox" id="has_company_logo">
+                            <label for="has_company_logo">Company Logo</label>
+                        </div>
+                        <div class="check-group">
+                            <input type="checkbox" id="has_questions">
+                            <label for="has_questions">Screening Questions</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="requirements">Requirements</label>
+                            <textarea id="requirements" rows="3" placeholder="Skills, education..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="benefits">Benefits</label>
+                            <textarea id="benefits" rows="3" placeholder="Perks, insurance..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" id="submitBtn">
+                        <span class="btn-text">Detect Fraud</span>
+                        <div class="loader"></div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="result-card" id="resultCard" style="display: none;">
+                <div class="result-header">
+                    <div id="resultBadge" class="badge">Fraudulent</div>
+                    <h3 id="resultTitle">Analysis Result</h3>
+                </div>
+                <div class="gauge-container">
+                    <div class="gauge">
+                        <div class="gauge-fill" id="gaugeFill"></div>
+                        <div class="gauge-text" id="confidenceText">0%</div>
+                    </div>
+                    <p>Confidence Level</p>
+                </div>
+                <div class="result-message" id="resultMessage">
+                    This posting shows significant patterns common in fraudulent job advertisements.
+                </div>
+                <button onclick="resetForm()" class="reset-btn">Analyze Another</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 GuardJob AI. Secure your career path.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
